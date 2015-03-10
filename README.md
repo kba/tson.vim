@@ -1,2 +1,3 @@
-# tson.vim
-TSON syntax highlighting
+# turtleson.vim
+
+Vim syntax highlighting for the TurtleSON JSON dialect.

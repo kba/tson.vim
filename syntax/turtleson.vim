@@ -25,10 +25,11 @@ syn match   tsonSeparator         "[][;,)(}{^!]"
 syn match   tsonDeclaration       "@[a-zA-Z0-9_-]*"
 syn match   tsonClassName         "\(:\?\)\@<=[A-Z][a-zA-Z0-9_-]*"
 syn match   tsonPropertyName      "\(:\?\)\@<=[a-z][a-zA-Z0-9_-]*"
-syn match   tsonPrefix            "\([a-zA-Z_][a-zA-Z0-9_]*\)\?:"
+syn match   tsonPrefix            "\([a-zA-Z_][a-zA-Z0-9_]*\)\?:\( \)\@!"
 syn keyword tsonTodo              TODO FIXME XXX contained
 
 " URI:s, strings, numbers, variables
+syn keyword tsonBoolean           false true yes no on off
 syn match tsonNumber              "[-+]\?[0-9]\+\(\.[0-9]\+\)\?\(e[-+]\?[0-9]\+\)\?" 
 syn region tsonURI                matchgroup=tsonURI start=+<+ end=+>+ skip=+\\\\\|\\"+ contains=tsonURITokens
 " TODO: tsonURITokens
@@ -62,6 +63,7 @@ if version >= 508 || !exists("did_tson_syn_inits")
   HiLink tsonString               String
   HiLink tsonStringDelim          Constant
   HiLink tsonPrefix               PreProc
+  HiLink tsonBoolean              Boolean
 
   delcommand HiLink
 endif
